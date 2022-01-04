@@ -7,6 +7,19 @@
 
 import Foundation
 
+class flightDateInput{
+    var d: String = ""
+    var m : String = ""
+    var y : String = ""
+    init(d:String, m:String,y:String){
+        self.d = d
+        self.m = m
+        self.y = y
+    }//init ENDS
+    
+}// class flightDateInput ENDS
+let userDeptDate = flightDateInput(d: "", m: "", y: "")
+let userArrDate = flightDateInput(d: "", m: "", y: "")
 
 print("""
 ------------------ Welcome Traveler -----------------------------
@@ -87,21 +100,6 @@ func tripTypes(){
         
     }//if ends
 }//func tripTypes ENDS
-
-
-class flightDateInput{
-    var d: String = ""
-    var m : String = ""
-    var y : String = ""
-    init(d:String, m:String,y:String){
-        self.d = d
-        self.m = m
-        self.y = y
-    }//init ENDS
-    
-}// class flightDateInput ENDS
-let userDeptDate = flightDateInput(d: "", m: "", y: "")
-let userArrDate = flightDateInput(d: "", m: "", y: "")
 
 func userDateInput(){
     print("Please enter departure date:")
