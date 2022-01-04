@@ -16,10 +16,9 @@ class flightDateInput{
         self.m = m
         self.y = y
     }//init ENDS
-    
 }// class flightDateInput ENDS
-let userDeptDate = flightDateInput(d: "", m: "", y: "")
-let userArrDate = flightDateInput(d: "", m: "", y: "")
+var userDeptDate = flightDateInput(d: "", m: "", y: "")
+var userArrDate = flightDateInput(d: "", m: "", y: "")
 
 print("""
 ------------------ Welcome Traveler -----------------------------
@@ -54,7 +53,6 @@ if userOption == "0" || userOption == "1"   {
     """)
 }//if (user inputs = 0 or 1 ) ENDS
 
-
 var travelersNum : String = "" //Global variable
 
 func travelersNumber(){
@@ -67,7 +65,6 @@ func travelersNumber(){
         } else{
             print("So, you are travelling with \(travelersNum) of your friends ! what a great company 😍")
         }//else ends
-        
     } //if ends
 }//travelersNum ENDS
 
@@ -85,55 +82,100 @@ func tripTypes(){
         }else{
             switch userTrip {
             case "1": print("One way trip then 😍")
-                userDateInput()
-                //   flightDetails()
+                // userDateInput()
+                flightDetails()
                 break
             case "2": print("Round trip then 😍")
-                userDateInput()
-                // flightDetails()
+                //  userDateInput()
+                flightDetails()
+                flightDetails()
                 break
-                
             default: print("ERROR !! please select choice ")
                 tripTypes()
             }//switch ends
         }
-        
     }//if ends
 }//func tripTypes ENDS
 
 func userDateInput(){
     print("Please enter departure date:")
     print("Day:")
-    var deptDay = ""
-    var userInput = readLine()!
-    deptDay = userInput
-    userDeptDate.d == deptDay
+    let deptDay = readLine()!
     print("Month:")
-    var deptMonth = readLine()!
+    let deptMonth = readLine()!
     print("Year:")
-    var deptYear = readLine()!
+    let deptYear = readLine()!
     print("Please enter arrival date:")
     print("Day:")
-    var arrDay = readLine()!
+    let arrDay = readLine()!
     print("Month:")
-    var arrMonth = readLine()!
+    let arrMonth = readLine()!
     print("Year:")
-    var arrYear = readLine()!
-    
-    
+    let arrYear = readLine()!
+    userDeptDate.d = deptDay
     userDeptDate.m = deptMonth
     userDeptDate.y = deptYear
     userArrDate.d = arrDay
     userArrDate.m = arrMonth
     userArrDate.y = arrYear
-    print("Great 🥰 \(arrDay)")
-    
-    
-    
 }//func userDateInput Ends
-//
-//func flightDetails(){
-//    var userDate1 = readLine()
-//    userDate1 = userDeptDate.userDateInput()
-//
-//}//fun ends
+
+func flightDetails(){
+    print("Please enter departure date:")
+    print("Day:")
+    let deptDay = readLine()!
+    print("Month:")
+    let deptMonth = readLine()!
+    print("Year:")
+    let deptYear = readLine()!
+    print("Please enter arrival date:")
+    print("Day:")
+    let arrDay = readLine()!
+    print("Month:")
+    let arrMonth = readLine()!
+    print("Year:")
+    let arrYear = readLine()!
+    userDeptDate.d = deptDay
+    userDeptDate.m = deptMonth
+    userDeptDate.y = deptYear
+    userArrDate.d = arrDay
+    userArrDate.m = arrMonth
+    userArrDate.y = arrYear
+    
+    print("Please enter departure city:")
+    let depCity = readLine()!
+    print("Please enter arrival city:")
+    let arrCity = readLine()!
+    print("""
+      please select available time :
+      [1] \(depCity):10:00 -> \(arrCity) : 11:50
+      [2] \(depCity):13:00 -> \(arrCity) : 15:50
+      [3] \(depCity):15:00 -> \(arrCity) : 17:50
+      """)
+    let userTimeChoice = readLine()!
+    print("Thank you your reservation has been saved ✅ please enter [1] to see Flight details or [0] for starting over? EXIT[9]")
+    let userInput = readLine()!
+    switch userInput{
+    case "1":
+        print("""
+    ------------------Flight details✈️-----------------------------
+    Departure City: \(depCity)
+    Departure Day: \(deptDay)
+    Departure Month: \(deptMonth)
+    Departure Year: \(deptYear)
+    letival City: \(arrCity)
+    Arrival Day: \(arrDay)
+    Arrival Month: \(arrMonth)
+    Arrival Year: \(arrYear)
+    """)
+        if userTimeChoice == "1"{
+            print("Flight Time: \(depCity):10:00 -> \(arrCity) : 11:50")
+        }else if userTimeChoice == "2"{
+            print("Flight Time: \(depCity):13:00 -> \(arrCity) : 15:50")
+        }else{
+            print("Flight Time: \(depCity):15:00 -> \(arrCity) : 17:50")
+        }
+    case "0": tripTypes()
+    default: break
+    }
+}//func ends
